@@ -11,7 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pnpm ci && pnpm run build
+
+      # Install pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8 # or the version you use locally
+
+      # Install dependencies & build
+      - run: pnpm install
+      - run: pnpm run build
+
+      # Deploy to Firebase Hosting
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
