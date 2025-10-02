@@ -1,6 +1,6 @@
 
   {
-      "name",
+      "name":"digital_farm_management_portal",
       "version": "0.1.0",
       "private": true,
       "dependencies": {
